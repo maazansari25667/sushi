@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap')
+layer(base);
+
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-xs: 450px;
+  --breakpoint-sm: 575px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
+
+  /* Premium Typography System - Enterprise Restaurant Aesthetic
+   * 
+   * Font Hierarchy:
+   * --font-sans: Inter - Clean, modern body text (Apple-style)
+   * --font-display: Playfair Display - Elegant serif headings (luxury)
+   * --font-japanese: Noto Serif JP - Authentic Japanese accents
+   * --font-cormorant: Cormorant - Ultra-premium alternative display
+   * 
+   * Typography Scale (Mobile → Desktop):
+   * Display (Hero): 56px → 72px+ (xl:text-[72px])
+   * H1: 40px → 56px (text-5xl → text-6xl)
+   * H2: 32px → 48px (text-4xl → text-5xl)
+   * H3: 24px → 32px (text-2xl → text-3xl)
+   * Body: 16px → 18px (text-base → text-lg)
+   * 
+   * Letter Spacing:
+   * Display: -0.02em (tracking-tight)
+   * Headings: -0.01em (tracking-tight)
+   * Uppercase Labels: 0.2em (tracking-[0.2em])
+   * Body: 0 (tracking-normal)
+   */
+  
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-japanese: var(--font-japanese);
+  --font-cormorant: var(--font-cormorant);
+
+  --color-current: currentColor;
+  --color-transparent: transparent;
+  --color-white: #ffffff;
+  --color-black: #121723;
+  --color-dark: #1d2430;
+  --color-primary: #4a6cf7;
+  --color-yellow: #fbb040;
+  --color-bg-color-dark: #171c28;
+
+  --color-body-color: #788293;
+  --color-body-color-dark: #959cb1;
+
+  --color-stroke-stroke: #e3e8ef;
+  --color-stroke-dark: #353943;
+
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+  --color-gray-dark: #1e232e;
+  --color-gray-light: #f0f2f9;
+
+  /* Semantic color tokens for Nomi Sushi & Thai restaurant theme
+     These tokens provide a consistent color system across the entire app
+     (hero, navbar, cards, menu, gallery, contact, footer, etc.)
+     Designed for a premium, light restaurant aesthetic with orange accent
+     
+     GLASS-MORPHISM SYSTEM:
+     Enhanced with semi-transparent backgrounds and backdrop-blur for
+     Apple/iOS-style frosted glass effects across all surfaces */
+  
+  /* 
+   * Section background tokens (Foundation for glass-morphism layouts):
+   * 
+   * --color-background: Main page background - soft gradient base
+   *                     Provides depth for glass surfaces to float above
+   *                     (#f5f5f7 - soft warm gray)
+   * 
+   * --color-muted: Light band background - alternate sections
+   *                Subtle tint for visual rhythm in banded layouts
+   *                (#f3f4f6 - very light cool gray)
+   * 
+   * --color-card: Glass card/panel surfaces - semi-transparent white
+   *               Used with backdrop-blur for frosted glass effect
+   *               (rgba(255, 255, 255, 0.7) - 70% white opacity)
+   * 
+   * Glass-morphism implementation:
+   * - Cards: bg-white/70 backdrop-blur-xl
+   * - Navbar: bg-white/70 backdrop-blur-2xl
+   * - Hero: bg-white/40 backdrop-blur-3xl
+   * - Overlays: bg-white/60 backdrop-blur-2xl
+   */
+  
+  --color-background: #f5f5f7;
+  --color-foreground: #121723;
+  
+  --color-card: #ffffff;
+  --color-card-foreground: #121723;
+  
+  --color-muted: #f3f4f6;
+  --color-muted-foreground: #788293;
+  
+  --color-border: #e5e7eb;
+  
+  --color-accent: #fff7ec;
+  --color-accent-foreground: #121723;
+
+  --shadow-sign-up: 0px 5px 10px rgba(4, 10, 34, 0.2);
+  --shadow-one: 0px 2px 3px rgba(7, 7, 77, 0.05);
+  --shadow-two: 0px 5px 10px rgba(6, 8, 15, 0.1);
+  --shadow-three: 0px 5px 15px rgba(6, 8, 15, 0.05);
+  --shadow-sticky: inset 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+  --shadow-sticky-dark: inset 0 -1px 0 0 rgba(255, 255, 255, 0.1);
+  --shadow-feature-2: 0px 10px 40px rgba(48, 86, 211, 0.12);
+  --shadow-submit: 0px 5px 20px rgba(4, 10, 34, 0.1);
+  --shadow-submit-dark: 0px 5px 20px rgba(4, 10, 34, 0.1);
+  --shadow-btn: 0px 1px 2px rgba(4, 10, 34, 0.15);
+  --shadow-btn-hover: 0px 1px 2px rgba(0, 0, 0, 0.15);
+  --shadow-btn-light: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  
+  /* Glass-morphism shadow system */
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+  --shadow-glass-lg: 0 12px 48px 0 rgba(0, 0, 0, 0.12);
+  --shadow-glass-xl: 0 20px 64px 0 rgba(0, 0, 0, 0.16);
+  --shadow-glass-hover: 0 24px 80px 0 rgba(0, 0, 0, 0.12);
+
+  --drop-shadow-three: 0px 5px 15px rgba(6, 8, 15, 0.05);
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility sticky {
+  & .header-logo {
+    @apply py-5 lg:py-2;
+  }
+
+  & .menu-scroll.active {
+    @apply opacity-70;
+  }
+}
+
+@utility header-logo {
+  .sticky & {
+    @apply py-5 lg:py-2;
+  }
+}
+
+@utility menu-scroll {
+  .sticky &.active {
+    @apply opacity-70;
+  }
+}
+
+@utility active {
+  .sticky &.menu-scroll {
+    @apply opacity-70;
+  }
+}
+
+@utility dot {
+  input#togglePlan:checked ~ & {
+    @apply translate-x-full;
+  }
+}
+
+@utility box {
+  input#checkboxLabel:checked ~ & span {
+    @apply opacity-100;
+  }
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans), "Inter", sans-serif;
+  }
+  
+  /* Premium Typography Base Styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  
+  /* Vertical Japanese Text */
+  .writing-mode-vertical-rl {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+  
+  .writing-mode-vertical-lr {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+  }
+}
+
+@layer components {
+  input[type="checkbox"]:checked ~ label span svg {
+    @apply inline-flex;
+  }
+}
+
+/* Homepage image strip animations */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable scale/translate transforms for reduced motion */
+  .motion-safe-transform {
+    transform: none !important;
+  }
+}
