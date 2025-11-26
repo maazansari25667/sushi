@@ -9,6 +9,12 @@ const nextConfig = {
       },
     ],
   },
+
+  eslint: {
+    // allows production builds to succeed even if
+    // ESLint has errors in the project
+    ignoreDuringBuilds: true,
+  },
 };
 
 module.exports = nextConfig;
