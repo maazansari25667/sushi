@@ -18,7 +18,6 @@ export default function MenuItemCard({
 }: MenuItemCardProps) {
   return (
     <StandardCard className="backdrop-blur-xl bg-white/70 hover:bg-white/80 transition-all duration-300">
-      {/* Image Block */
       <div className="aspect-[768/463] w-full overflow-hidden rounded-t-2xl">
         <Image
           src={image}
@@ -28,7 +27,6 @@ export default function MenuItemCard({
         />
       </div>
 
-      {/* Text Block */}
       <div className="flex flex-col gap-2 py-4 px-4">
         <h3 className="font-display text-lg md:text-xl font-bold tracking-tight text-foreground">
           {name}
@@ -41,7 +39,6 @@ export default function MenuItemCard({
         )}
 
         <div className="flex items-center justify-between pt-2">
-          {/* Tags / Chips - Left Side */}
           {tags && tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
               {tags.map(tag => (
@@ -55,7 +52,6 @@ export default function MenuItemCard({
             </div>
           )}
 
-          {/* Price - Right Side */}
           {price && (
             <span className="text-base font-medium text-foreground ml-auto">
               {price}

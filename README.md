@@ -1,53 +1,140 @@
-# Startup - Free Next.js Startup Website Template
+# Nomi Sushi & Thai - Premium Next.js Restaurant Website
 
-Startup is a free, open-source, and premium-quality [**Next.js startup website template**](https://nextjstemplates.com/templates/startup) that comes with everything you need to launch a startup, business, or SaaS website, including all essential sections, components, and pages.
+A modern, high-performance restaurant website built with Next.js 15, TypeScript, and Tailwind CSS. Features glass-morphism design, smooth animations, multi-language support, and a fully functional gallery with lightbox.
 
-If you're looking for a high-quality and visually appealing, feature-rich Next.js Template for your next startup, SaaS, or business website, this is the perfect choice and starting point for you!
+## 🚀 Live Demo
 
-### ✨ Key Features
-- Crafted for Startup and SaaS Business
-- Next.js and Tailwind CSS
-- All Essential Business Sections and Pages
-- High-quality and Clean Design
-- Dark and Light Version
-- TypeScript Support
-and Much More ...
+Visit the live site: [Nomi Sushi & Thai](https://www.nomisushi.se)
 
-### 🙌 Detailed comparison between the Free and Pro versions of Startup
+## ✨ Key Features
 
-| Feature             | Free | Pro |
-|---------------------|------------|----------|
-| Next.js Landing Page             | ✅ Yes      | ✅ Yes      |
-| All The Integrations - Auth, DB, Payments, Blog and many more ...             | ❌ No      | ✅ Yes |
-| Homepage Variations             | 1      | 2 |
-| Additional SaaS Pages and Components             | ❌ No      | ✅ Yes |
-| Functional Blog with Sanity       | ❌ No      | ✅ Yes |
-| Use with Commercial Projects            | ✅ Yes      | ✅ Yes      |
-| Lifetime Free Updates             | ✅ Yes      | ✅ Yes |
-| Email Support       | ❌ No         | ✅ Yes       |
-| Community Support         | ✅ Yes         | ✅ Yes       |
+- 🎨 **Glass-morphism Design System** - Modern, premium UI with frosted glass effects
+- 🌊 **Smooth Page Transitions** - Framer Motion animations throughout
+- 🖼️ **Premium Gallery** - Full-screen lightbox with thumbnail navigation
+- 🌐 **Multi-language Support** - English/Swedish with persistent language selection
+- 📱 **PWA Support** - Installable as a mobile app
+- 🎯 **Floating Action Buttons** - Quick access to order, call, directions
+- 🍱 **Interactive Menu** - 3D card effects with category filtering
+- 📞 **Contact Features** - Reservation form, FAQ accordion, live hours
+- ⚡ **Performance Optimized** - Next.js 15 with Image optimization
+- 🎭 **Advanced Animations** - Scroll-triggered reveals, parallax effects
+- 📐 **Responsive Design** - Mobile-first, works on all devices
+- 🔍 **SEO Optimized** - Meta tags, Open Graph, Twitter cards
 
+## 🛠️ Tech Stack
 
-### [🔥 Get Startup Pro](https://nextjstemplates.com/templates/saas-starter-startup)
+- **Framework:** Next.js 15.3.0
+- **Language:** TypeScript 5.3.3
+- **Styling:** Tailwind CSS 4.1.3
+- **Animations:** Framer Motion 12.23
+- **UI Components:** Radix UI primitives
+- **Fonts:** Google Fonts (Inter, Playfair Display, Noto Serif JP)
+- **Icons:** Lucide React
+- **Toast Notifications:** Sonner
 
-[![Startup Pro](https://raw.githubusercontent.com/NextJSTemplates/startup-nextjs/main/startup-pro.webp)](https://nextjstemplates.com/templates/saas-starter-startup)
+## 📦 Installation
 
-Startup Pro - Expertly crafted for fully-functional, high-performing SaaS startup websites. Comes with with Authentication, Database, Blog, and all the essential integrations necessary for SaaS business sites.
+```bash
+# Clone the repository
+git clone https://github.com/maaz-ka-baap/sushi-.git
 
+# Navigate to project directory
+cd sushi-
 
-- [🚀 View Free Demo](https://startup.nextjstemplates.com/)
+# Install dependencies
+npm install
 
-- [🚀 View Pro Demo](https://startup-pro.nextjstemplates.com/)
+# Run development server
+npm run dev
 
-- [📦 Download](https://nextjstemplates.com/templates/startup)
+# Build for production
+npm run build
 
-- [🔥 Get Pro](https://nextjstemplates.com/templates/saas-starter-startup)
+# Start production server
+npm start
+```
 
-- [🔌 Documentation](https://nextjstemplates.com/docs)
+## 🚀 Deploy to Vercel
 
-### ⚡ Deploy Now
+1. Push your code to GitHub
+2. Import project to Vercel
+3. Configure build settings (auto-detected)
+4. Deploy!
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FNextJSTemplates%2Fstartup-nextjs)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmaaz-ka-baap%2Fsushi-)
+
+## 📁 Project Structure
+
+```
+src/
+├── app/              # Next.js app directory (pages)
+├── components/       # React components
+│   ├── ui/          # Reusable UI components
+│   ├── gallery/     # Gallery & lightbox
+│   ├── menu/        # Menu cards & tabs
+│   ├── navigation/  # Navbar, FABs, language switcher
+│   └── ...
+├── data/            # Static data (menu, gallery, images)
+├── lib/             # Utilities & i18n
+├── styles/          # Global CSS
+└── types/           # TypeScript types
+
+public/
+├── images/          # Static images
+│   ├── Gallery/    # Gallery photos
+│   ├── hero/       # Hero section images
+│   └── logo/       # Logo files
+└── manifest.json    # PWA manifest
+```
+
+## 🎯 Key Pages
+
+- `/` - Homepage with hero, features, signature dishes
+- `/menu` - Full menu with category tabs
+- `/gallery` - Photo gallery with lightbox
+- `/contact` - Contact form, info, FAQ
+- `/about` - About the restaurant
+
+## 🌐 Multi-language Support
+
+The site supports English and Swedish with persistent language selection:
+- Language stored in localStorage
+- Automatic language detection
+- Easy to extend to more languages
+
+## 📱 PWA Features
+
+- Installable on mobile devices
+- Offline-ready with service worker
+- App shortcuts for quick actions
+- Custom install banner
+
+## ⚡ Performance
+
+- Static generation where possible
+- Image optimization with Next.js Image
+- Code splitting by route
+- Lazy loading for images
+- Optimized font loading
+
+## 🔧 Configuration
+
+Edit `src/config/site.ts` to customize:
+- Site name and description
+- Contact information
+- Opening hours
+- Order URL
+
+## 📄 License
+
+MIT License - feel free to use for your projects
+
+## 🙏 Credits
+
+- Template base: NextJS Templates
+- Images: Nomi Sushi & Thai
+- Icons: Lucide React
+- UI Components: Radix UI
 
 [![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/NextJSTemplates/startup-nextjs)
 
