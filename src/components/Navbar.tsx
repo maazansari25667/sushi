@@ -28,8 +28,8 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full backdrop-blur-xl border-b border-border bg-background/80">
-      <nav aria-label="Main Navigation" className="h-20 flex items-center">
+    <header className="sticky top-0 z-40 w-full border-b border-border backdrop-blur-md bg-white/95 shadow-sm md:bg-background/80 md:shadow-none">
+      <nav aria-label="Main Navigation" className="h-16 md:h-20 flex items-center">
         <div className="max-w-7xl mx-auto w-full px-4 md:px-8">
           <div className="flex items-center justify-between w-full">
             {/* Logo - Left */}

@@ -111,7 +111,7 @@ export default function RootLayout({
             <OrderTrackingBanner />
             
             {/* Main content wrapper - Centered with max-width */}
-            <main className="flex-1">
+            <main className="flex-1 pt-16 md:pt-20">
               <PageTransition>
                 <div className="max-w-7xl mx-auto w-full px-4 md:px-8">
                   {children}

@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <>
       {/* Block 1: Hero Section */}
-      <Section className="py-0">
+      <Section className="py-0 -mt-16 md:-mt-20">
         <Hero />
       </Section>
       
