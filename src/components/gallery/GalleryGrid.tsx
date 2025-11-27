@@ -3,10 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { galleryImages } from "@/data/gallery";
+import { featuredGalleryImages } from "@/data/gallery";
 import { GalleryLightbox } from "./GalleryLightbox";
 import { SkeletonGalleryGrid } from "@/components/ui/skeleton";
 import { StandardCard } from "@/components/ui/nc-card";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 // Separate component for each gallery item to properly use hooks
 const GalleryItem = ({ 
@@ -19,7 +20,7 @@ const GalleryItem = ({
   onImageLoad, 
   onClick 
 }: {
-  image: { src: string; alt: string };
+  image: { src: string; altKey: string };
   index: number;
   hoveredIndex: number | null;
   loadedImages: Set<number>;
@@ -28,9 +29,22 @@ const GalleryItem = ({
   onImageLoad: () => void;
   onClick: () => void;
 }) => {
+  const { t } = useLanguage();
   const imageRef = useRef(null);
   const isInView = useInView(imageRef, { once: true, margin: "-100px" });
   const isHovered = hoveredIndex === index;
+  
+  // Helper to resolve nested translation keys
+  const getTranslation = (key: string) => {
+    const keys = key.split('.');
+    let value: any = t;
+    for (const k of keys) {
+      value = value?.[k];
+    }
+    return value || key;
+  };
+  
+  const altText = getTranslation(image.altKey);
   
   return (
     <motion.div
@@ -74,7 +88,7 @@ const GalleryItem = ({
               >
                 <Image
                   src={image.src}
-                  alt={image.alt}
+                  alt={altText}
                   fill
                   className={`object-cover transition-all duration-700 ${
                     isHovered ? 'brightness-110 contrast-105' : 'brightness-100'
@@ -120,7 +134,7 @@ const GalleryItem = ({
             {/* Image Caption with premium styling */}
             <div className="p-4 bg-gradient-to-b from-white/95 to-white/90">
               <p className="text-xs font-medium text-slate-700 leading-relaxed line-clamp-2">
-                {image.alt}
+                {altText}
               </p>
             </div>
           </StandardCard>
@@ -131,6 +145,7 @@ const GalleryItem = ({
 };
 
 const GalleryGrid = () => {
+  const { t } = useLanguage();
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -159,11 +174,11 @@ const GalleryGrid = () => {
   };
 
   const goToPrevious = () => {
-    setActiveIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+    setActiveIndex((prev) => (prev === 0 ? featuredGalleryImages.length - 1 : prev - 1));
   };
 
   const goToNext = () => {
-    setActiveIndex((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
+    setActiveIndex((prev) => (prev === featuredGalleryImages.length - 1 ? 0 : prev + 1));
   };
 
   if (isLoading) {
@@ -174,7 +189,7 @@ const GalleryGrid = () => {
     <>
       <div className="bg-slate-50 rounded-3xl p-6 md:p-8" data-gallery-grid>
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {galleryImages.map((image, index) => (
+          {featuredGalleryImages.map((image, index) => (
             <div key={image.src} data-gallery-item>
               <GalleryItem
                 image={image}
@@ -193,14 +208,14 @@ const GalleryGrid = () => {
         {/* Gallery Stats */}
         <div className="mt-6 text-center">
           <p className="text-xs text-slate-500">
-            {galleryImages.length} photos showcasing our sushi, Thai cuisine, and restaurant atmosphere
+            {featuredGalleryImages.length} {t.gallery.stats}
           </p>
         </div>
       </div>
 
       {/* Lightbox */}
       <GalleryLightbox
-        images={galleryImages}
+        images={featuredGalleryImages}
         activeIndex={activeIndex}
         isOpen={isLightboxOpen}
         onClose={closeLightbox}

@@ -198,7 +198,7 @@ const Hero = () => {
                   transition={{ duration: 0.4 }}
                 >
                   <p className="text-base text-white font-bold px-8 py-3 rounded-full bg-black/40 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
-                    🍱 Hover to preview our culinary artistry
+                    {t.hero.hoverPreview}
                   </p>
                 </motion.div>
 
@@ -251,7 +251,7 @@ const Hero = () => {
           className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3 z-20"
         >
           <p className="text-sm text-foreground font-semibold tracking-wide uppercase drop-shadow-lg">
-            Scroll to explore
+            {t.hero.scrollToExplore}
           </p>
           <motion.div
             animate={{

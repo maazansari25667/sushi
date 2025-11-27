@@ -37,7 +37,7 @@ const GalleryPage = () => {
               >
                 <Image
                   src="/images/Gallery/DSC09670-min-768x377.jpg"
-                  alt="Nomi Sushi & Thai restaurant ambiance"
+                  alt={t.gallery.banner.alt}
                   fill
                   className="object-cover"
                   priority
@@ -54,7 +54,7 @@ const GalleryPage = () => {
               >
                 <Image
                   src="/images/Gallery/DSC08683-min-768x464.jpg"
-                  alt="Premium sushi selection - signature dishes"
+                  alt={t.gallery.banner.alt}
                   fill
                   className="object-cover"
                   priority

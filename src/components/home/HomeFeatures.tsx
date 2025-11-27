@@ -1,23 +1,26 @@
 import { StandardCard } from "@/components/ui/nc-card";
 import { CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const HomeFeatures = () => {
+  const { t } = useLanguage();
+  
   const features = [
     {
       icon: "📍",
-      title: "Where are we?",
-      description: "Nomi Sushi & Thai is conveniently located in Nykvarn, serving the finest sushi and authentic Thai dishes to our local community and visitors."
+      title: t.home.whatWeOffer.location,
+      description: t.home.whatWeOffer.locationDescription
     },
     {
       icon: "📄",
-      title: "Download our menu",
-      description: "Click here to download our full menu and explore all our delicious offerings.",
+      title: t.home.whatWeOffer.menuDownload,
+      description: t.home.whatWeOffer.menuDownloadDescription,
       hasLink: true
     },
     {
       icon: "⚡",
-      title: "Fast service",
-      description: "We stand for fast service and high quality. Experience quick preparation without compromising on taste and freshness."
+      title: t.home.whatWeOffer.fastService,
+      description: t.home.whatWeOffer.fastServiceDescription
     }
   ];
 
@@ -42,7 +45,7 @@ const HomeFeatures = () => {
                     download
                     className="text-sm font-semibold text-orange-600 hover:underline"
                   >
-                    Download menu (PDF)
+                    {t.home.whatWeOffer.downloadPdf}
                   </a>
                 )}
           </CardContent>

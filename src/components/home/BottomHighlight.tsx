@@ -3,15 +3,19 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
-const words = ["Thai", "Sushi", "Smak"];
+const wordsEn = ["Thai", "Sushi", "Taste"];
+const wordsSv = ["Thai", "Sushi", "Smak"];
 
 export function BottomHighlight() {
+  const { t, language } = useLanguage();
   const [index, setIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
   const [showCursor, setShowCursor] = useState(true);
 
+  const words = language === "sv" ? wordsSv : wordsEn;
   const currentWord = words[index];
 
   // Typewriter effect
@@ -67,7 +71,7 @@ export function BottomHighlight() {
 
       <div className="relative mx-auto flex max-w-5xl flex-col items-center justify-center px-4 text-center">
         <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">
-          We have the best{" "}
+          {t.home.bestThai.titlePrefix}{" "}
           <span className="relative inline-block">
             {/* Typewriter Text with Premium Styling */}
             <motion.span
@@ -96,7 +100,7 @@ export function BottomHighlight() {
           </span>
         </h2>
         <p className="mt-6 font-sans font-light text-lg text-slate-600 md:text-xl max-w-2xl leading-relaxed">
-          Experience authentic flavors crafted with passion and the finest ingredients
+          {t.home.bestThai.subtitle}
         </p>
       </div>
     </section>

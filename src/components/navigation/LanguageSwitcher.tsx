@@ -15,34 +15,7 @@ export default function LanguageSwitcher() {
 
   return (
     <div className="flex items-center gap-1 bg-muted rounded-full p-1" role="group" aria-label="Language switcher">
-      {/* English Button */}
-      <motion.button
-        type="button"
-        onClick={() => handleLanguageChange("en")}
-        aria-label="Switch to English"
-        aria-pressed={language === "en"}
-        className={`relative px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
-          language === "en"
-            ? "text-white"
-            : "text-muted-foreground hover:text-foreground"
-        }`}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        {language === "en" && (
-          <motion.div
-            layoutId="activeLanguage"
-            className="absolute inset-0 bg-primary rounded-full"
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          />
-        )}
-        <span className="relative z-10 flex items-center gap-1.5">
-          <span className="text-base">🇬🇧</span>
-          <span className="hidden sm:inline">EN</span>
-        </span>
-      </motion.button>
-
-      {/* Swedish Button */}
+      {/* Swedish Button - PRIMARY (FIRST) */}
       <motion.button
         type="button"
         onClick={() => handleLanguageChange("sv")}
@@ -66,6 +39,33 @@ export default function LanguageSwitcher() {
         <span className="relative z-10 flex items-center gap-1.5">
           <span className="text-base">🇸🇪</span>
           <span className="hidden sm:inline">SV</span>
+        </span>
+      </motion.button>
+
+      {/* English Button - SECONDARY (SECOND) */}
+      <motion.button
+        type="button"
+        onClick={() => handleLanguageChange("en")}
+        aria-label="Switch to English"
+        aria-pressed={language === "en"}
+        className={`relative px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
+          language === "en"
+            ? "text-white"
+            : "text-muted-foreground hover:text-foreground"
+        }`}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        {language === "en" && (
+          <motion.div
+            layoutId="activeLanguage"
+            className="absolute inset-0 bg-primary rounded-full"
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          />
+        )}
+        <span className="relative z-10 flex items-center gap-1.5">
+          <span className="text-base">🇬🇧</span>
+          <span className="hidden sm:inline">EN</span>
         </span>
       </motion.button>
     </div>

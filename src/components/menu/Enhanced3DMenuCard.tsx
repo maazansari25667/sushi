@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
 import Link from "next/link";
 import { qoplaOrderUrl } from "@/config/site";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface MenuItemCardProps {
   name: string;
@@ -37,6 +38,7 @@ export default function Enhanced3DMenuCard({
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const { t } = useLanguage();
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -159,17 +161,17 @@ export default function Enhanced3DMenuCard({
                 <div className="flex flex-wrap gap-2">
                   {vegetarian && (
                     <span className="text-xs px-2 py-1 rounded-full bg-green-100 text-green-700 font-medium">
-                      Vegetarian
+                      {t.menuPage.dietary.vegetarian}
                     </span>
                   )}
                   {vegan && (
                     <span className="text-xs px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 font-medium">
-                      Vegan
+                      {t.menuPage.dietary.vegan}
                     </span>
                   )}
                   {glutenFree && (
                     <span className="text-xs px-2 py-1 rounded-full bg-amber-100 text-amber-700 font-medium">
-                      Gluten Free
+                      {t.menuPage.dietary.glutenFree}
                     </span>
                   )}
                 </div>
@@ -198,7 +200,7 @@ export default function Enhanced3DMenuCard({
                     className="flex w-full h-full items-center justify-center gap-2 px-6 py-3"
                   >
                     <Icons.cart className="h-5 w-5 flex-shrink-0" />
-                    <span className="font-semibold">Quick Add to Order</span>
+                    <span className="font-semibold">{t.menuPage.quickAdd}</span>
                   </Link>
                 </Button>
               </motion.div>

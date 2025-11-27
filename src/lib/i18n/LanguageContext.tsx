@@ -12,7 +12,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("en");
+  const [language, setLanguageState] = useState<Language>("sv");
   const [mounted, setMounted] = useState(false);
 
   // Load language from localStorage on mount
@@ -21,6 +21,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const savedLang = localStorage.getItem("language") as Language;
     if (savedLang && (savedLang === "en" || savedLang === "sv")) {
       setLanguageState(savedLang);
+    } else {
+      // Default to Swedish if no saved language
+      setLanguageState("sv");
     }
   }, []);
 
@@ -41,9 +44,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   if (!mounted) {
     return (
       <LanguageContext.Provider value={{
-        language: "en",
+        language: "sv",
         setLanguage: () => {},
-        t: translations["en"],
+        t: translations["sv"],
       }}>
         {children}
       </LanguageContext.Provider>

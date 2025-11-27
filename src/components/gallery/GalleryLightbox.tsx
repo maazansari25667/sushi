@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { GalleryImage } from "@/data/gallery";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface GalleryLightboxProps {
   images: GalleryImage[];
@@ -21,12 +22,23 @@ export function GalleryLightbox({
   onPrevious: onPreviousAction,
   onNext: onNextAction,
 }: GalleryLightboxProps) {
+  const { t } = useLanguage();
   const onClose = onCloseAction;
   const onPrevious = onPreviousAction;
   const onNext = onNextAction;
   
   const dialogRef = useRef<HTMLDivElement>(null);
   const previouslyFocusedRef = useRef<HTMLElement | null>(null);
+
+  // Helper to resolve nested translation keys
+  const getTranslation = (key: string) => {
+    const keys = key.split('.');
+    let value: any = t;
+    for (const k of keys) {
+      value = value?.[k];
+    }
+    return value || key;
+  };
 
   // Focus trap and keyboard navigation
   useEffect(() => {
@@ -106,6 +118,7 @@ export function GalleryLightbox({
   if (!isOpen || !images[activeIndex]) return null;
 
   const currentImage = images[activeIndex];
+  const altText = getTranslation(currentImage.altKey);
   
   // Generate share URLs
   const origin = typeof window !== "undefined" ? window.location.origin : "";
@@ -115,8 +128,8 @@ export function GalleryLightbox({
   const encodedImageUrl = encodeURIComponent(imageUrl);
 
   const facebookShare = `https://www.facebook.com/sharer/sharer.php?u=${encodedPageUrl}`;
-  const twitterShare = `https://twitter.com/intent/tweet?url=${encodedPageUrl}&text=${encodeURIComponent(currentImage.alt)}`;
-  const pinterestShare = `https://www.pinterest.com/pin/create/button/?url=${encodedPageUrl}&media=${encodedImageUrl}&description=${encodeURIComponent(currentImage.alt)}`;
+  const twitterShare = `https://twitter.com/intent/tweet?url=${encodedPageUrl}&text=${encodeURIComponent(altText)}`;
+  const pinterestShare = `https://www.pinterest.com/pin/create/button/?url=${encodedPageUrl}&media=${encodedImageUrl}&description=${encodeURIComponent(altText)}`;
 
   return (
     <div
@@ -155,7 +168,7 @@ export function GalleryLightbox({
           <div className="relative w-full" style={{ maxHeight: 'calc(100vh - 380px)' }}>
             <Image
               src={currentImage.src}
-              alt={currentImage.alt}
+              alt={altText}
               width={1920}
               height={1080}
               className="h-auto w-full object-contain"
@@ -168,7 +181,7 @@ export function GalleryLightbox({
           {/* Caption Below Image */}
           <div className="mt-4 text-center">
             <p className="text-sm text-white/80 md:text-base">
-              {currentImage.alt}
+              {altText}
             </p>
           </div>
 
@@ -258,35 +271,38 @@ export function GalleryLightbox({
       <div className="fixed bottom-0 left-0 right-0 z-[10000] bg-gradient-to-t from-black/80 to-transparent p-4">
         <div className="mx-auto max-w-7xl">
           <div className="flex gap-2 overflow-x-auto pb-2">
-            {images.map((image, index) => (
-              <button
-                key={image.src}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onClose();
-                  setTimeout(() => {
-                    const grid = document.querySelector('[data-gallery-grid]');
-                    if (grid) {
-                      const items = grid.querySelectorAll('[data-gallery-item]');
-                      if (items[index]) {
-                        (items[index] as HTMLElement).click();
+            {images.map((image, index) => {
+              const thumbAlt = getTranslation(image.altKey);
+              return (
+                <button
+                  key={image.src}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onClose();
+                    setTimeout(() => {
+                      const grid = document.querySelector('[data-gallery-grid]');
+                      if (grid) {
+                        const items = grid.querySelectorAll('[data-gallery-item]');
+                        if (items[index]) {
+                          (items[index] as HTMLElement).click();
+                        }
                       }
-                    }
-                  }, 50);
-                }}
-                className={`relative h-16 w-24 flex-shrink-0 overflow-hidden rounded transition ${
-                  index === activeIndex ? 'ring-2 ring-white' : 'opacity-60 hover:opacity-100'
-                }`}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover"
-                  sizes="96px"
-                />
-              </button>
-            ))}
+                    }, 50);
+                  }}
+                  className={`relative h-16 w-24 flex-shrink-0 overflow-hidden rounded transition ${
+                    index === activeIndex ? 'ring-2 ring-white' : 'opacity-60 hover:opacity-100'
+                  }`}
+                >
+                  <Image
+                    src={image.src}
+                    alt={thumbAlt}
+                    fill
+                    className="object-cover"
+                    sizes="96px"
+                  />
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -1,18 +1,21 @@
 import { sitePhoneDisplay, sitePhoneHref, qoplaOrderUrl } from "@/config/site";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const HomeCallToActionStrip = () => {
+  const { t } = useLanguage();
+  
   return (
     <div className="rounded-3xl bg-gradient-to-br from-orange-500 to-primary px-6 py-8 text-white shadow-2xl md:px-12 md:py-10">
       <div className="flex flex-col items-center gap-6">
         {/* Phone Number Display */}
         <div className="text-center">
           <p className="text-xs font-medium tracking-[0.2em] uppercase text-orange-100 mb-2">
-            Ready to take your order
+            {t.home.experienceInPerson.ctaOverline}
           </p>
           <p className="text-2xl font-bold md:text-3xl lg:text-4xl">
-            Call us: <span className="text-white drop-shadow-lg">{sitePhoneDisplay}</span>
+            {t.home.experienceInPerson.phoneLabel} <span className="text-white drop-shadow-lg">{sitePhoneDisplay}</span>
           </p>
         </div>
         
@@ -27,7 +30,7 @@ const HomeCallToActionStrip = () => {
           >
             <a href={`tel:${sitePhoneHref}`}>
               <Icons.phone className="mr-2 h-4 w-4" />
-              <span>Call Us</span>
+              <span>{t.home.experienceInPerson.cta.call}</span>
             </a>
           </Button>
           
@@ -43,7 +46,7 @@ const HomeCallToActionStrip = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span>Order Online</span>
+              <span>{t.home.experienceInPerson.cta.orderOnline}</span>
               <Icons.externalLink className="ml-2 h-4 w-4" />
             </a>
           </Button>

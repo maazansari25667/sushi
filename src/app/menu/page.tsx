@@ -26,6 +26,16 @@ const MenuPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { t } = useLanguage();
 
+  // Helper function to resolve nested translation keys
+  const getTranslation = (key: string) => {
+    const keys = key.split('.');
+    let value: any = t;
+    for (const k of keys) {
+      value = value?.[k];
+    }
+    return value || key;
+  };
+
   // Map category IDs to translation keys
   const getCategoryLabel = (categoryId: string) => {
     const labelMap: Record<string, string> = {
@@ -100,13 +110,65 @@ const MenuPage = () => {
         ) : (
           <Tabs defaultValue="sushi" className="w-full">
           
-          <TabsList className="flex flex-wrap gap-3 mb-8">
-            {menuCategories.map((category) => (
-              <TabsTrigger key={category.id} value={category.id}>
-                {getCategoryLabel(category.id)}
+          <div className="w-full overflow-x-auto mb-8 pb-2">
+            <TabsList className="inline-flex min-w-max flex-nowrap md:flex-wrap justify-start md:justify-center gap-2 md:gap-3 bg-transparent border-0 px-4 md:px-0">
+              <TabsTrigger 
+                value="sushi"
+                className="rounded-full px-4 md:px-6 py-2.5 text-sm md:text-base font-medium transition-all data-[state=active]:bg-primary/75 data-[state=active]:text-primary-foreground data-[state=active]:shadow-md data-[state=active]:shadow-primary/25 data-[state=inactive]:bg-muted data-[state=inactive]:text-muted-foreground hover:data-[state=inactive]:bg-muted/80"
+              >
+                <span className="mr-1" aria-hidden="true">🍣</span>
+                <span>{getCategoryLabel("sushi")}</span>
               </TabsTrigger>
-            ))}
-          </TabsList>
+              
+              <TabsTrigger 
+                value="vegetarian-sushi"
+                className="rounded-full px-4 md:px-6 py-2.5 text-sm md:text-base font-medium transition-all data-[state=active]:bg-primary/75 data-[state=active]:text-primary-foreground data-[state=active]:shadow-md data-[state=active]:shadow-primary/25 data-[state=inactive]:bg-muted data-[state=inactive]:text-muted-foreground hover:data-[state=inactive]:bg-muted/80"
+              >
+                <span className="mr-1" aria-hidden="true">🥬</span>
+                <span>{getCategoryLabel("vegetarian-sushi")}</span>
+              </TabsTrigger>
+              
+              <TabsTrigger 
+                value="nigiri"
+                className="rounded-full px-4 md:px-6 py-2.5 text-sm md:text-base font-medium transition-all data-[state=active]:bg-primary/75 data-[state=active]:text-primary-foreground data-[state=active]:shadow-md data-[state=active]:shadow-primary/25 data-[state=inactive]:bg-muted data-[state=inactive]:text-muted-foreground hover:data-[state=inactive]:bg-muted/80"
+              >
+                <span className="mr-1" aria-hidden="true">🍣</span>
+                <span>{getCategoryLabel("nigiri")}</span>
+              </TabsTrigger>
+              
+              <TabsTrigger 
+                value="maki"
+                className="rounded-full px-4 md:px-6 py-2.5 text-sm md:text-base font-medium transition-all data-[state=active]:bg-primary/75 data-[state=active]:text-primary-foreground data-[state=active]:shadow-md data-[state=active]:shadow-primary/25 data-[state=inactive]:bg-muted data-[state=inactive]:text-muted-foreground hover:data-[state=inactive]:bg-muted/80"
+              >
+                <span className="mr-1" aria-hidden="true">🌀</span>
+                <span>{getCategoryLabel("maki")}</span>
+              </TabsTrigger>
+              
+              <TabsTrigger 
+                value="hot-food"
+                className="rounded-full px-4 md:px-6 py-2.5 text-sm md:text-base font-medium transition-all data-[state=active]:bg-primary/75 data-[state=active]:text-primary-foreground data-[state=active]:shadow-md data-[state=active]:shadow-primary/25 data-[state=inactive]:bg-muted data-[state=inactive]:text-muted-foreground hover:data-[state=inactive]:bg-muted/80"
+              >
+                <span className="mr-1" aria-hidden="true">🔥</span>
+                <span>{getCategoryLabel("hot-food")}</span>
+              </TabsTrigger>
+              
+              <TabsTrigger 
+                value="curry"
+                className="rounded-full px-4 md:px-6 py-2.5 text-sm md:text-base font-medium transition-all data-[state=active]:bg-primary/75 data-[state=active]:text-primary-foreground data-[state=active]:shadow-md data-[state=active]:shadow-primary/25 data-[state=inactive]:bg-muted data-[state=inactive]:text-muted-foreground hover:data-[state=inactive]:bg-muted/80"
+              >
+                <span className="mr-1" aria-hidden="true">🍛</span>
+                <span>{getCategoryLabel("curry")}</span>
+              </TabsTrigger>
+              
+              <TabsTrigger 
+                value="stir-fried"
+                className="rounded-full px-4 md:px-6 py-2.5 text-sm md:text-base font-medium transition-all data-[state=active]:bg-primary/75 data-[state=active]:text-primary-foreground data-[state=active]:shadow-md data-[state=active]:shadow-primary/25 data-[state=inactive]:bg-muted data-[state=inactive]:text-muted-foreground hover:data-[state=inactive]:bg-muted/80"
+              >
+                <span className="mr-1" aria-hidden="true">🍜</span>
+                <span>{getCategoryLabel("stir-fried")}</span>
+              </TabsTrigger>
+            </TabsList>
+          </div>
 
           {menuCategories.map((category) => (
             <TabsContent key={category.id} value={category.id}>
@@ -142,9 +204,9 @@ const MenuPage = () => {
                     }}
                   >
                     <Enhanced3DMenuCard
-                      name={item.name}
+                      name={item.nameKey ? getTranslation(item.nameKey) : item.name || ''}
                       price={item.price}
-                      description={item.description}
+                      description={item.descriptionKey ? getTranslation(item.descriptionKey) : item.description}
                       spicy={item.spicy}
                       vegetarian={item.vegetarian}
                       vegan={item.vegan}

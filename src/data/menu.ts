@@ -1,6 +1,7 @@
 // NOTE: All visible menu items are driven from this data.
 // Do not hard-code dish names in components.
 // This is the single source of truth for the restaurant menu.
+// Names and descriptions use translation keys that must be resolved using useLanguage hook
 
 export type MenuCategoryId =
   | "sushi"
@@ -12,8 +13,10 @@ export type MenuCategoryId =
   | "stir-fried";
 
 export interface MenuItem {
-  name: string;
-  description?: string;
+  nameKey?: string; // Translation key for menu item name
+  descriptionKey?: string; // Translation key for description
+  name?: string; // Fallback if no translation key
+  description?: string; // Fallback if no translation key
   price: string;
   // Optional flags for dietary requirements:
   spicy?: boolean;
@@ -34,33 +37,33 @@ export const menuCategories: MenuCategory[] = [
     label: "Sushi",
     items: [
       {
-        name: "10 pieces of sushi",
-        description: "5 nigiri, 5 maki",
+        nameKey: "menuItems.sushi.10pieces",
+        descriptionKey: "menuItems.sushi.10piecesDesc",
         price: "139:-",
       },
       {
-        name: "12 pieces of sushi",
-        description: "7 nigiri, 5 maki",
+        nameKey: "menuItems.sushi.12pieces",
+        descriptionKey: "menuItems.sushi.12piecesDesc",
         price: "159:-",
       },
       {
-        name: "15 pieces of sushi",
-        description: "8 nigiri, 7 maki",
+        nameKey: "menuItems.sushi.15pieces",
+        descriptionKey: "menuItems.sushi.15piecesDesc",
         price: "189:-",
       },
       {
-        name: "20 pieces of sushi",
-        description: "10 nigiri, 10 maki",
+        nameKey: "menuItems.sushi.20pieces",
+        descriptionKey: "menuItems.sushi.20piecesDesc",
         price: "239:-",
       },
       {
-        name: "Sushi special",
-        description: "Chef's selection of premium sushi pieces",
+        nameKey: "menuItems.sushi.special",
+        descriptionKey: "menuItems.sushi.specialDesc",
         price: "299:-",
       },
       {
-        name: "Sushi deluxe",
-        description: "Premium assortment with seasonal fish",
+        nameKey: "menuItems.sushi.deluxe",
+        descriptionKey: "menuItems.sushi.deluxeDesc",
         price: "349:-",
       },
     ],
@@ -70,33 +73,33 @@ export const menuCategories: MenuCategory[] = [
     label: "Vegetarian Sushi",
     items: [
       {
-        name: "Cucumber maki",
-        description: "Fresh cucumber wrapped in seasoned rice",
+        nameKey: "menuItems.vegetarianSushi.cucumberMaki",
+        descriptionKey: "menuItems.vegetarianSushi.cucumberMakiDesc",
         price: "45:-",
       },
       {
-        name: "Avocado maki",
-        description: "Creamy avocado with sesame seeds",
+        nameKey: "menuItems.vegetarianSushi.avocadoMaki",
+        descriptionKey: "menuItems.vegetarianSushi.avocadoMakiDesc",
         price: "55:-",
       },
       {
-        name: "Vegetarian deluxe",
-        description: "12 pieces mixed vegetarian sushi",
+        nameKey: "menuItems.vegetarianSushi.vegetarianDeluxe",
+        descriptionKey: "menuItems.vegetarianSushi.vegetarianDeluxeDesc",
         price: "129:-",
       },
       {
-        name: "Veggie California roll",
-        description: "Avocado, cucumber, and carrot with sesame",
+        nameKey: "menuItems.vegetarianSushi.veggieCalifornia",
+        descriptionKey: "menuItems.vegetarianSushi.veggieCaliforniaDesc",
         price: "65:-",
       },
       {
-        name: "Inari sushi",
-        description: "Sweet seasoned tofu pockets with rice",
+        nameKey: "menuItems.vegetarianSushi.inari",
+        descriptionKey: "menuItems.vegetarianSushi.inariDesc",
         price: "39:-",
       },
       {
-        name: "Rainbow veggie roll",
-        description: "Colorful vegetables with spicy mayo",
+        nameKey: "menuItems.vegetarianSushi.rainbowVeggie",
+        descriptionKey: "menuItems.vegetarianSushi.rainbowVeggieDesc",
         price: "79:-",
       },
     ],
@@ -106,43 +109,43 @@ export const menuCategories: MenuCategory[] = [
     label: "Nigiri",
     items: [
       {
-        name: "Salmon nigiri",
-        description: "Fresh Norwegian salmon",
+        nameKey: "menuItems.nigiri.salmon",
+        descriptionKey: "menuItems.nigiri.salmonDesc",
         price: "18:-",
       },
       {
-        name: "Tuna nigiri",
-        description: "Premium yellowfin tuna",
+        nameKey: "menuItems.nigiri.tuna",
+        descriptionKey: "menuItems.nigiri.tunaDesc",
         price: "22:-",
       },
       {
-        name: "Shrimp nigiri",
-        description: "Cooked tiger shrimp",
+        nameKey: "menuItems.nigiri.shrimp",
+        descriptionKey: "menuItems.nigiri.shrimpDesc",
         price: "16:-",
       },
       {
-        name: "Eel nigiri",
-        description: "Grilled eel with sweet sauce",
+        nameKey: "menuItems.nigiri.eel",
+        descriptionKey: "menuItems.nigiri.eelDesc",
         price: "24:-",
       },
       {
-        name: "Sea bass nigiri",
-        description: "Fresh white fish",
+        nameKey: "menuItems.nigiri.seaBass",
+        descriptionKey: "menuItems.nigiri.seaBassDesc",
         price: "19:-",
       },
       {
-        name: "Scallop nigiri",
-        description: "Fresh sea scallop",
+        nameKey: "menuItems.nigiri.scallop",
+        descriptionKey: "menuItems.nigiri.scallopDesc",
         price: "26:-",
       },
       {
-        name: "Octopus nigiri",
-        description: "Tender cooked octopus",
+        nameKey: "menuItems.nigiri.octopus",
+        descriptionKey: "menuItems.nigiri.octopusDesc",
         price: "20:-",
       },
       {
-        name: "Tamago nigiri",
-        description: "Sweet Japanese omelet",
+        nameKey: "menuItems.nigiri.tamago",
+        descriptionKey: "menuItems.nigiri.tamagoDesc",
         price: "15:-",
       },
     ],
@@ -152,31 +155,29 @@ export const menuCategories: MenuCategory[] = [
     label: "Maki (Rolls)",
     items: [
       {
-        name: "California Roll",
-        description: "Crab, avocado, cucumber, Japanese mayonnaise",
+        nameKey: "menuItems.maki.californiaRoll",
+        descriptionKey: "menuItems.maki.californiaRollDesc",
         price: "139:-",
       },
       {
-        name: "Tempura Roll",
-        description: "Avocado, cucumber, fried king prawn and vegetables",
+        nameKey: "menuItems.maki.tempuraRoll",
+        descriptionKey: "menuItems.maki.tempuraRollDesc",
         price: "159:-",
       },
       {
-        name: "Fried Spicy Tuna Roll",
-        description:
-          "Avocado, tuna, cucumber and coriander chili sauce with roasted onion",
+        nameKey: "menuItems.maki.friedSpicyTuna",
+        descriptionKey: "menuItems.maki.friedSpicyTunaDesc",
         price: "159:-",
         spicy: true,
       },
       {
-        name: "Twister Roll",
-        description:
-          "Philadelphia cheese, avocado, cucumber, masago and grilled salmon",
+        nameKey: "menuItems.maki.twisterRoll",
+        descriptionKey: "menuItems.maki.twisterRollDesc",
         price: "159:-",
       },
       {
-        name: "Poke Bowl",
-        description: "Salmon, avocado, cucumber, chili mayonnaise and rice",
+        nameKey: "menuItems.maki.pokeBowl",
+        descriptionKey: "menuItems.maki.pokeBowlDesc",
         price: "149:-",
       },
     ],
@@ -186,40 +187,40 @@ export const menuCategories: MenuCategory[] = [
     label: "Hot Food",
     items: [
       {
-        name: "Chicken Teriyaki",
-        description: "Grilled chicken with teriyaki sauce, served with rice and vegetables",
+        nameKey: "menuItems.hotFood.chickenTeriyaki",
+        descriptionKey: "menuItems.hotFood.chickenTeriyakiDesc",
         price: "149:-",
       },
       {
-        name: "Beef Yakiniku",
-        description: "Japanese-style grilled beef with sesame and soy sauce",
+        nameKey: "menuItems.hotFood.beefYakiniku",
+        descriptionKey: "menuItems.hotFood.beefYakinikuDesc",
         price: "169:-",
       },
       {
-        name: "Tempura Platter",
-        description: "Crispy fried shrimp and mixed vegetables with dipping sauce",
+        nameKey: "menuItems.hotFood.tempuraPlatter",
+        descriptionKey: "menuItems.hotFood.tempuraPlatterDesc",
         price: "139:-",
       },
       {
-        name: "Chicken Katsu",
-        description: "Breaded and fried chicken cutlet with tonkatsu sauce",
+        nameKey: "menuItems.hotFood.chickenKatsu",
+        descriptionKey: "menuItems.hotFood.chickenKatsuDesc",
         price: "155:-",
       },
       {
-        name: "Gyoza (6 pcs)",
-        description: "Pan-fried dumplings filled with pork and vegetables",
+        nameKey: "menuItems.hotFood.gyoza",
+        descriptionKey: "menuItems.hotFood.gyozaDesc",
         price: "89:-",
       },
       {
-        name: "Edamame",
-        description: "Steamed soybeans with sea salt",
+        nameKey: "menuItems.hotFood.edamame",
+        descriptionKey: "menuItems.hotFood.edamameDesc",
         price: "59:-",
         vegetarian: true,
         vegan: true,
       },
       {
-        name: "Spring Rolls (4 pcs)",
-        description: "Crispy vegetable spring rolls with sweet chili sauce",
+        nameKey: "menuItems.hotFood.springRolls",
+        descriptionKey: "menuItems.hotFood.springRollsDesc",
         price: "75:-",
         vegetarian: true,
       },
@@ -230,33 +231,33 @@ export const menuCategories: MenuCategory[] = [
     label: "Curry Dishes",
     items: [
       {
-        name: "Green curry",
-        description: "Coconut milk, Thai basil, bamboo shoots",
+        nameKey: "menuItems.curry.green",
+        descriptionKey: "menuItems.curry.greenDesc",
         price: "149:-",
       },
       {
-        name: "Red curry",
-        description: "Coconut milk, Thai eggplant, bell peppers",
+        nameKey: "menuItems.curry.red",
+        descriptionKey: "menuItems.curry.redDesc",
         price: "149:-",
       },
       {
-        name: "Yellow curry",
-        description: "Mild curry with potatoes and onions",
+        nameKey: "menuItems.curry.yellow",
+        descriptionKey: "menuItems.curry.yellowDesc",
         price: "139:-",
       },
       {
-        name: "Massaman curry",
-        description: "Rich curry with peanuts and potatoes",
+        nameKey: "menuItems.curry.massaman",
+        descriptionKey: "menuItems.curry.massamanDesc",
         price: "159:-",
       },
       {
-        name: "Panang curry",
-        description: "Thick curry with lime leaves and basil",
+        nameKey: "menuItems.curry.panang",
+        descriptionKey: "menuItems.curry.panangDesc",
         price: "155:-",
       },
       {
-        name: "Jungle curry",
-        description: "Spicy curry with mixed vegetables",
+        nameKey: "menuItems.curry.jungle",
+        descriptionKey: "menuItems.curry.jungleDesc",
         price: "145:-",
       },
     ],
@@ -266,38 +267,38 @@ export const menuCategories: MenuCategory[] = [
     label: "Stir-fried Dishes",
     items: [
       {
-        name: "Pad Thai",
-        description: "Rice noodles with tamarind sauce and peanuts",
+        nameKey: "menuItems.stirFried.padThai",
+        descriptionKey: "menuItems.stirFried.padThaiDesc",
         price: "139:-",
       },
       {
-        name: "Pad See Ew",
-        description: "Wide noodles with dark soy sauce and vegetables",
+        nameKey: "menuItems.stirFried.padSeeEw",
+        descriptionKey: "menuItems.stirFried.padSeeEwDesc",
         price: "135:-",
       },
       {
-        name: "Basil stir-fry",
-        description: "Thai basil with chili and garlic sauce",
+        nameKey: "menuItems.stirFried.basil",
+        descriptionKey: "menuItems.stirFried.basilDesc",
         price: "129:-",
       },
       {
-        name: "Cashew stir-fry",
-        description: "Roasted cashews with vegetables",
+        nameKey: "menuItems.stirFried.cashew",
+        descriptionKey: "menuItems.stirFried.cashewDesc",
         price: "145:-",
       },
       {
-        name: "Sweet and sour",
-        description: "Pineapple, tomatoes, and bell peppers",
+        nameKey: "menuItems.stirFried.sweetSour",
+        descriptionKey: "menuItems.stirFried.sweetSourDesc",
         price: "139:-",
       },
       {
-        name: "Ginger stir-fry",
-        description: "Fresh ginger with scallions and soy sauce",
+        nameKey: "menuItems.stirFried.ginger",
+        descriptionKey: "menuItems.stirFried.gingerDesc",
         price: "135:-",
       },
       {
-        name: "Thai fried rice",
-        description: "Jasmine rice with egg and mixed vegetables",
+        nameKey: "menuItems.stirFried.thaiFriedRice",
+        descriptionKey: "menuItems.stirFried.thaiFriedRiceDesc",
         price: "125:-",
       },
     ],
