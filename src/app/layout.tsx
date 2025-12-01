@@ -53,14 +53,14 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
-  metadataBase: new URL("https://www.nomisushi.se"),
+  metadataBase: new URL("https://www.nordicwardrobe.se"),
   manifest: "/manifest.json",
   openGraph: {
     title: siteName,
     description: siteDescription,
-    url: "https://www.nomisushi.se",
+    url: "https://www.nordicwardrobe.se",
     siteName,
-    locale: "en_SE",
+    locale: "sv_SE",
     type: "website",
   },
   twitter: {
@@ -81,9 +81,9 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Nomi Sushi",
+    title: "NordicWardrobe",
   },
-  applicationName: "Nomi Sushi & Thai",
+  applicationName: "NordicWardrobe",
   formatDetection: {
     telephone: true,
   },

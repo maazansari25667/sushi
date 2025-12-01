@@ -78,7 +78,7 @@ const GalleryItem = ({
               
               {/* IMAGE with Ken Burns effect (zoom + pan) */}
               <motion.div
-                className="relative aspect-[768/463]"
+                className="relative aspect-[480/574]"
                 animate={isHovered ? {
                   scale: 1.15,
                   x: (Math.random() - 0.5) * 20,
@@ -90,7 +90,7 @@ const GalleryItem = ({
                   src={image.src}
                   alt={altText}
                   fill
-                  className={`object-cover transition-all duration-700 ${
+                  className={`object-contain transition-all duration-700 ${
                     isHovered ? 'brightness-110 contrast-105' : 'brightness-100'
                   } ${
                     loadedImages.has(index) ? 'blur-0' : 'blur-md'

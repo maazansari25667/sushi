@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Hero from "@/components/Hero/index";
-import SignatureDishes from "@/components/home/SignatureDishes";
+import Hero from "@/components/Hero";
+import FeaturedJackets from "@/components/home/FeaturedJackets";
 import HomeFeatures from "@/components/home/HomeFeatures";
 import HomeHighlightImage from "@/components/home/HomeHighlightImage";
 import { BottomHighlight } from "@/components/home/BottomHighlight";
@@ -38,11 +38,11 @@ export default function Home() {
         <Hero />
       </Section>
       
-      {/* Block 2: Signature Dishes Video Showcase */}
+      {/* Block 2: Featured Jackets Showcase */}
       <SectionMuted>
-        <SignatureDishes />
+        <FeaturedJackets />
         
-        {/* Carousel 1: Sushi Showcase with Scroll Animation */}
+        {/* Carousel 1: Collection Showcase with Scroll Animation */}
         <motion.div
           className="mt-10 md:mt-16"
           initial="hidden"

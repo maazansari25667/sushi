@@ -1,7 +1,7 @@
 {
-  "name": "Nomi Sushi & Thai",
-  "short_name": "Nomi Sushi",
-  "description": "Fresh sushi and authentic Thai cuisine in Nykvarn. Order online for takeaway or dine-in.",
+  "name": "NordicWardrobe",
+  "short_name": "NordicWardrobe",
+  "description": "Premium men's fashion and jackets. Fast delivery across Sweden with free shipping over 999 kr.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f5f5f7",
@@ -21,26 +21,26 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["food", "restaurant"],
+  "categories": ["fashion", "shopping"],
   "shortcuts": [
     {
-      "name": "View Menu",
-      "short_name": "Menu",
-      "description": "Browse our sushi and Thai menu",
+      "name": "View Products",
+      "short_name": "Products",
+      "description": "Browse our jackets and menswear collection",
       "url": "/menu",
       "icons": [{ "src": "/images/logo/icon-192.png", "sizes": "192x192" }]
     },
     {
-      "name": "Order Online",
-      "short_name": "Order",
-      "description": "Place an order for delivery or pickup",
-      "url": "https://qopla.com/restaurant/nomi-sushi-/qEQPB9Rwjg",
+      "name": "Shop Online",
+      "short_name": "Shop",
+      "description": "Shop our collection online",
+      "url": "https://nordicwardrobe.se/checkout",
       "icons": [{ "src": "/images/logo/icon-192.png", "sizes": "192x192" }]
     },
     {
-      "name": "Gallery",
-      "short_name": "Photos",
-      "description": "View photos of our dishes",
+      "name": "Lookbook",
+      "short_name": "Lookbook",
+      "description": "View our fashion lookbook",
       "url": "/gallery",
       "icons": [{ "src": "/images/logo/icon-192.png", "sizes": "192x192" }]
     }

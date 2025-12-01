@@ -3,44 +3,44 @@ import { Blog } from "@/types/blog";
 const blogData: Blog[] = [
   {
     id: 1,
-    title: "Best UI components for modern websites",
+    title: "5 Ways to Style a Winter Parka for Every Occasion",
     paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
+      "Discover versatile styling tips for your winter parka. From casual weekends to smart-casual office looks, learn how to maximize your jacket investment.",
     image: "/images/blog/blog-01.jpg",
     author: {
-      name: "Samuyl Joshi",
+      name: "Erik Andersson",
       image: "/images/blog/author-03.png",
-      designation: "Graphic Designer",
+      designation: "Style Consultant",
     },
-    tags: ["creative"],
+    tags: ["styling"],
     publishDate: "2025",
   },
   {
     id: 2,
-    title: "9 simple ways to improve your design skills",
+    title: "Parka vs Puffer: Which Winter Jacket Is Right for You?",
     paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
+      "Compare the benefits of parkas and puffer jackets. Understand warmth ratings, weather resistance, and style versatility to make the perfect choice.",
     image: "/images/blog/blog-02.jpg",
     author: {
-      name: "Musharof Chy",
+      name: "Johan Svensson",
       image: "/images/blog/author-02.png",
-      designation: "Content Writer",
+      designation: "Fashion Editor",
     },
-    tags: ["computer"],
+    tags: ["guide"],
     publishDate: "2025",
   },
   {
     id: 3,
-    title: "Tips to quickly improve your coding speed.",
+    title: "The Art of Layering: Scandinavian Winter Style Guide",
     paragraph:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet dictum neque, laoreet dolor.",
+      "Master the Nordic approach to winter dressing. Learn layering techniques that combine warmth, comfort, and timeless Scandinavian aesthetics.",
     image: "/images/blog/blog-03.jpg",
     author: {
-      name: "Lethium Deo",
+      name: "Lars Nilsson",
       image: "/images/blog/author-03.png",
-      designation: "Graphic Designer",
+      designation: "Style Consultant",
     },
-    tags: ["design"],
+    tags: ["trends"],
     publishDate: "2025",
   },
 ];

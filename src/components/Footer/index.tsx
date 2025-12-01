@@ -36,10 +36,10 @@ const Footer = () => {
                 <HighlightCard className="overflow-hidden backdrop-blur-xl bg-white/90 border-2 border-white/50 shadow-[0_16px_64px_rgba(0,0,0,0.1)]">
                   <div className="grid md:grid-cols-2 gap-0">
                     {/* Image Side */}
-                    <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[400px] overflow-hidden group">
+                    <div className="relative aspect-[480/574] md:aspect-auto md:min-h-[400px] overflow-hidden group">
                       <Image
-                        src="/images/hero/DSC08683-min-scaled.jpg"
-                        alt={t.footer.weeklySpecial.dishName}
+                        src="/images/Jackets/home cover/b_girl.webp"
+                        alt="This Week's Featured Collection – vinterjacka"
                         fill
                         className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                         sizes="(max-width: 768px) 100vw, 50vw"

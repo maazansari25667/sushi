@@ -32,7 +32,7 @@ export function HomeImageStrip({
           >
             <Image
               src={src}
-              alt="Nomi Sushi & Thai - Fresh sushi and Thai cuisine"
+              alt="NordicWardrobe - Premium men's fashion and jackets"
               fill
               className="rounded-2xl object-cover shadow-lg transition-transform duration-300 hover:scale-105"
               sizes="(max-width: 768px) 256px, (max-width: 1024px) 320px, 384px"

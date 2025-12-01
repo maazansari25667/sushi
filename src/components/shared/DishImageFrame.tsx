@@ -7,9 +7,9 @@ interface DishImageFrameProps extends Omit<ImageProps, "fill" | "width" | "heigh
 }
 
 /**
- * Standardized container for all dish/food images across the site.
- * Enforces 768×463 aspect ratio to match actual image dimensions.
- * Use in carousels on Home and Menu pages.
+ * Standardized container for product/jacket images across the site.
+ * Uses 591:1280 aspect ratio to match nordick_ward jacket images (portrait).
+ * Use in carousels on Home and product pages.
  */
 export function DishImageFrame({ 
   src, 
@@ -20,7 +20,7 @@ export function DishImageFrame({
   return (
     <div
       className={`
-        relative w-full aspect-[768/463]
+        relative w-full aspect-[591/1280]
         overflow-hidden rounded-3xl
         bg-slate-100 group
         ${className}
@@ -31,7 +31,7 @@ export function DishImageFrame({
         alt={alt}
         fill
         sizes="(min-width: 1024px) 800px, 100vw"
-        className="object-cover transition-transform duration-300 group-hover:scale-105"
+        className="object-contain transition-transform duration-300 group-hover:scale-105"
         {...rest}
       />
     </div>

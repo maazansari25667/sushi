@@ -98,14 +98,12 @@ export default function NotFound() {
               Contact Us
             </Link>
             <span className="text-muted-foreground">•</span>
-            <a
-              href="https://qopla.com/restaurant/nomi-sushi-/qEQPB9Rwjg"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/jackets"
               className="text-sm text-primary hover:underline"
             >
-              Order Online
-            </a>
+              Shop Jackets
+            </Link>
           </div>
         </div>
       </StandardCard>

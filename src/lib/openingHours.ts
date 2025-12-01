@@ -1,6 +1,6 @@
 /**
  * Opening Hours Utility
- * Calculates real-time restaurant status based on Swedish time (Europe/Stockholm)
+ * Calculates real-time customer service availability based on Swedish time (Europe/Stockholm)
  */
 
 export interface OpeningHoursSchedule {
@@ -62,7 +62,7 @@ function getDayName(dayNumber: number, t?: any): string {
 }
 
 /**
- * Calculate restaurant status and next event
+ * Calculate customer service status and next event
  */
 export function getOpeningHoursInfo(t?: any): OpeningHoursInfo {
   const now = getCurrentSwedishTime();
@@ -107,7 +107,7 @@ export function getOpeningHoursInfo(t?: any): OpeningHoursInfo {
     };
   }
 
-  // Restaurant is closed - find next opening
+  // Customer service is closed - find next opening
   let nextOpeningDay = currentDay;
   let nextSchedule = todaySchedule;
 

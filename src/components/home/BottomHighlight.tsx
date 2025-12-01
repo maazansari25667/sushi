@@ -5,8 +5,8 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
-const wordsEn = ["Thai", "Sushi", "Taste"];
-const wordsSv = ["Thai", "Sushi", "Smak"];
+const wordsEn = ["Jackets", "Style", "Quality"];
+const wordsSv = ["Jackor", "Stil", "Kvalitet"];
 
 export function BottomHighlight() {
   const { t, language } = useLanguage();

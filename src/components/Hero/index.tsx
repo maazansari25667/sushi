@@ -114,14 +114,14 @@ const Hero = () => {
                     transition={{ duration: 0.6, delay: 0.5 }}
                     className="flex flex-col sm:flex-row gap-4 pt-4"
                   >
-                    {/* Primary Hero CTA: View Menu - Secondary variant */}
+                    {/* Primary Hero CTA: Explore Jackets - Secondary variant */}
                     <Button
                       variant="secondary"
                       size="lg"
                       asChild
                     >
                       <motion.a
-                        href="/menu"
+                        href="/jackets"
                         whileHover={{ scale: 1.03, y: -2 }}
                         whileTap={{ scale: 0.98 }}
                       >
@@ -130,14 +130,14 @@ const Hero = () => {
                       </motion.a>
                     </Button>
 
-                    {/* Secondary Hero CTA: Book Table - Ghost variant */}
+                    {/* Secondary Hero CTA: View Lookbook - Ghost variant */}
                     <Button
                       variant="ghost"
                       size="lg"
                       asChild
                     >
                       <motion.a
-                        href="/contact"
+                        href="/gallery"
                         whileHover={{ scale: 1.03, y: -2 }}
                         whileTap={{ scale: 0.98 }}
                       >

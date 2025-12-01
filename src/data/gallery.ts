@@ -1,4 +1,4 @@
-// Gallery images for Nomi Sushi & Thai
+// Gallery images for NordicWardrobe Lookbook
 // All images are located in /public/images/Gallery/
 // Alt text uses translation keys from galleryAlt namespace
 
@@ -9,134 +9,95 @@ export interface GalleryImage {
 }
 
 export const galleryImages: GalleryImage[] = [
+  // Black Winter Parka - Premium
   {
-    src: "/images/Gallery/DSC08560-min-768x453.jpg",
-    altKey: "galleryAlt.freshPlatter",
+    src: "/images/Jackets/Parka/30999-Black_1.webp",
+    altKey: "galleryAlt.blackWinterParka",
     featured: true,
   },
+  // Black Friday Collection - Designer Down Jacket
   {
-    src: "/images/Gallery/DSC08592-min-768x435.jpg",
-    altKey: "galleryAlt.beautifullyArranged",
+    src: "/images/Jackets/Black_friday/2331116D-999_01.webp",
+    altKey: "galleryAlt.designerDownJacket",
     featured: true,
   },
+  // Olive Green Parka
   {
-    src: "/images/Gallery/DSC08607-min-768x481.jpg",
-    altKey: "galleryAlt.assortedRolls",
+    src: "/images/Jackets/Parka/30255-Olive_1.webp",
+    altKey: "galleryAlt.oliveGreenParka",
     featured: true,
   },
+  // Premium Down Jacket - Black
   {
-    src: "/images/Gallery/DSC08618-min-768x435.jpg",
-    altKey: "galleryAlt.premiumNigiri",
+    src: "/images/Jackets/Down jackets/2531101-999_1.webp",
+    altKey: "galleryAlt.premiumDownJacket",
     featured: true,
   },
+  // Bomber Jacket - Green
   {
-    src: "/images/Gallery/DSC08622-min-768x443.jpg",
-    altKey: "galleryAlt.traditionalPlatter",
+    src: "/images/Jackets/Bomber jackets/JA200486-300_1.webp",
+    altKey: "galleryAlt.greenBomberJacket",
     featured: true,
   },
+  // NordicWardrobe Style Collection
   {
-    src: "/images/Gallery/DSC08640-min-768x460.jpg",
-    altKey: "galleryAlt.sashimiMaki",
+    src: "/images/Jackets/nordick_ward/photo_2025-12-01_16-46-37.jpg",
+    altKey: "galleryAlt.nordicStyleJacket",
     featured: true,
   },
+  // Puffer Jacket - Navy
   {
-    src: "/images/Gallery/DSC08643-min-768x435.jpg",
-    altKey: "galleryAlt.colorfulRolls",
-  },
-  {
-    src: "/images/Gallery/DSC08655-min-768x434.jpg",
-    altKey: "galleryAlt.sushiThai",
-  },
-  {
-    src: "/images/Gallery/DSC08672-min-768x415.jpg",
-    altKey: "galleryAlt.artfulPrep",
-  },
-  {
-    src: "/images/Gallery/DSC08683-min-768x464.jpg",
-    altKey: "galleryAlt.salmonTuna",
+    src: "/images/Jackets/Puffers/7006534-433_1.webp",
+    altKey: "galleryAlt.navyPufferJacket",
     featured: true,
   },
+  // Spring Jacket - Green
   {
-    src: "/images/Gallery/DSC08708-min-768x435.jpg",
-    altKey: "galleryAlt.traditional",
+    src: "/images/Jackets/Spring Jackets/JA200869-300_1.webp",
+    altKey: "galleryAlt.greenSpringJacket",
     featured: true,
   },
+  // NordicWardrobe Urban Design
   {
-    src: "/images/Gallery/DSC08719-min-768x437.jpg",
-    altKey: "galleryAlt.freshIngredients",
+    src: "/images/Jackets/nordick_ward/photo_2025-12-01_16-47-22.jpg",
+    altKey: "galleryAlt.urbanDesignJacket",
     featured: true,
   },
+  // Lightweight Down - Gray
   {
-    src: "/images/Gallery/DSC08723-min-768x463.jpg",
-    altKey: "galleryAlt.premiumCombo",
+    src: "/images/Jackets/Lightweight down/G80526-020_1.webp",
+    altKey: "galleryAlt.grayLightweightJacket",
     featured: true,
   },
+  // Parka - Black Technical
   {
-    src: "/images/Gallery/DSC08735-min-768x435.jpg",
-    altKey: "galleryAlt.makiNigiri",
+    src: "/images/Jackets/Parka/FMOW11487-9999_1.webp",
+    altKey: "galleryAlt.technicalBlackParka",
     featured: true,
   },
+  // Puffer - Burgundy
   {
-    src: "/images/Gallery/DSC08741-min-768x435.jpg",
-    altKey: "galleryAlt.assorted",
+    src: "/images/Jackets/Puffers/7006534-604_1.webp",
+    altKey: "galleryAlt.burgundyPufferJacket",
     featured: true,
   },
+  // NordicWardrobe Premium Collection
   {
-    src: "/images/Gallery/DSC08759-min-768x435.jpg",
-    altKey: "galleryAlt.beautifullyCrafted",
+    src: "/images/Jackets/nordick_ward/photo_2025-12-01_16-47-31.jpg",
+    altKey: "galleryAlt.premiumNordicJacket",
     featured: true,
   },
+  // Spring - Lightweight Blue
   {
-    src: "/images/Gallery/DSC09564-min-768x475.jpg",
-    altKey: "galleryAlt.sushiThai",
+    src: "/images/Jackets/Spring Jackets/3033874-6055_1.webp",
+    altKey: "galleryAlt.blueLightweightSpring",
+    featured: true,
   },
+  // Bomber - Beige Premium
   {
-    src: "/images/Gallery/DSC09670-min-768x377.jpg",
-    altKey: "galleryAlt.traditional",
-  },
-  {
-    src: "/images/Gallery/DSC09674-min-768x478.jpg",
-    altKey: "galleryAlt.premiumNigiri",
-  },
-  {
-    src: "/images/Gallery/2-768x576.jpg",
-    altKey: "galleryAlt.sushiThai",
-  },
-  {
-    src: "/images/Gallery/3-768x512.jpg",
-    altKey: "galleryAlt.makiNigiri",
-  },
-  {
-    src: "/images/Gallery/4-768x512.jpg",
-    altKey: "galleryAlt.artfulPrep",
-  },
-  {
-    src: "/images/Gallery/5-768x512.jpg",
-    altKey: "galleryAlt.traditional",
-  },
-  {
-    src: "/images/Gallery/6-768x512.jpg",
-    altKey: "galleryAlt.freshIngredients",
-  },
-  {
-    src: "/images/Gallery/7-768x512.jpg",
-    altKey: "galleryAlt.premiumNigiri",
-  },
-  {
-    src: "/images/Gallery/8-768x512.jpg",
-    altKey: "galleryAlt.assorted",
-  },
-  {
-    src: "/images/Gallery/9-768x512.jpg",
-    altKey: "galleryAlt.assortedRolls",
-  },
-  {
-    src: "/images/Gallery/10-768x512.jpg",
-    altKey: "galleryAlt.beautifullyCrafted",
-  },
-  {
-    src: "/images/Gallery/11-768x512.jpg",
-    altKey: "galleryAlt.traditional",
+    src: "/images/Jackets/Bomber jackets/M34ML313-292_1.webp",
+    altKey: "galleryAlt.beigeBomberJacket",
+    featured: true,
   },
 ];
 

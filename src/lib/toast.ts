@@ -2,10 +2,10 @@ import { toast } from "sonner";
 
 // Success toast for order actions
 export const showOrderSuccessToast = () => {
-  toast.success("Redirecting to Order Page", {
-    description: "Opening Qopla in a new tab...",
+  toast.success("Redirecting to Checkout", {
+    description: "Opening checkout page...",
     duration: 3000,
-    icon: "🍱",
+    icon: "🛍️",
   });
 };
 
@@ -91,7 +91,7 @@ export const showAddressCopiedToast = () => {
 // PWA install prompt
 export const showPWAInstallToast = () => {
   toast.info("Install Our App", {
-    description: "Get quick access to menu and ordering",
+    description: "Get quick access to shop and products",
     duration: 5000,
     icon: "📱",
   });
@@ -99,10 +99,10 @@ export const showPWAInstallToast = () => {
 
 // Reservation toast
 export const showReservationToast = () => {
-  toast.success("Reservation Request Sent", {
-    description: "We'll contact you shortly to confirm",
+  toast.success("Contact Request Sent", {
+    description: "We'll contact you shortly to assist",
     duration: 4000,
-    icon: "📅",
+    icon: "📧",
   });
 };
 
@@ -118,7 +118,7 @@ export const showWhatsAppToast = () => {
 // Directions toast
 export const showDirectionsToast = () => {
   toast.success("Opening Maps", {
-    description: "Getting directions to our restaurant",
+    description: "Getting directions to our location",
     duration: 2000,
     icon: "🗺️",
   });

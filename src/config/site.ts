@@ -1,22 +1,22 @@
-export const siteName = "Nomi Sushi & Thai";
-export const siteTagline = "Sushi och Thai i Nykvarn";
+export const siteName = "NordicWardrobe";
+export const siteTagline = "Jackor & herrkläder online";
 
 export const siteDescription =
-  "Nomi Sushi & Thai in Nykvarn offers fresh sushi and Thai dishes with fast service and high quality. Welcome for takeaway or dine-in.";
+  "Upptäck noggrant utvalda jackor och herrkläder – snabba leveranser i hela Sverige och fri frakt över 999 kr. Premium mode för moderna män.";
 
 export const sitePhoneDisplay = "+46 08 559 362 25";
 export const sitePhoneHref = "+46855936225";
 
-export const siteAddressLine1 = "Gammeltorpsvägen 4";
-export const siteAddressLine2 = "155 30 Nykvarn / Stockholm";
+export const siteAddressLine1 = "Kundservice";
+export const siteAddressLine2 = "Stockholm, Sverige";
 export const siteFullAddress =
-  "Gammeltorpsvägen 4, 155 30 Nykvarn, Sweden";
+  "Stockholm, Sweden";
 
 export const qoplaOrderUrl =
-  "https://qopla.com/restaurant/nomi-sushi-/qEQPB9Rwjg";
+  "https://nordicwardrobe.se/checkout";
 
 export const openingHours = [
-  "Monday – Thursday: 11.00 – 20.00",
-  "Friday: 11.00 – 20.30",
-  "Saturday – Sunday: 12.00 – 20.30",
+  "Kundservice vardagar: 9.00 – 17.00",
+  "E-post: info@nordicwardrobe.se",
+  "Snabb leverans 1-3 arbetsdagar",
 ];

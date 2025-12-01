@@ -5,8 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { HighlightCard } from "@/components/ui/nc-card";
-import { siteName, siteTagline, qoplaOrderUrl } from "@/config/site";
-import { showOrderSuccessToast } from "@/lib/toast";
+import { siteName, siteTagline } from "@/config/site";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -46,10 +45,10 @@ const imageVariants = {
 export default function Hero() {
   return (
     <section className="w-full min-h-[70vh] md:min-h-[80vh] flex items-center py-12 md:py-20 relative">
-      {/* Japanese Vertical Text Accent - Right Side */}
+      {/* Scandinavian Accent - Right Side */}
       <div className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 z-10">
-        <div className="writing-mode-vertical-rl font-japanese text-primary/20 text-sm tracking-wider">
-          寿司とタイ料理の融合
+        <div className="writing-mode-vertical-rl font-sans text-primary/20 text-sm tracking-wider">
+          NORDIC STYLE
         </div>
       </div>
 
@@ -66,7 +65,7 @@ export default function Hero() {
             className="text-xs font-medium tracking-ultra-wide uppercase text-primary/80 font-sans"
             variants={itemVariants}
           >
-            Sushi • Thai • Smak
+            Premium • Skandinavisk • Herrmode
           </motion.p>
           
           {/* Main Heading - Premium Display Font with Large Scale */}
@@ -76,14 +75,6 @@ export default function Hero() {
           >
             {siteName}
           </motion.h1>
-          
-          {/* Japanese Subtitle - Authentic Font */}
-          <motion.p
-            className="font-japanese text-lg md:text-xl text-primary/60 -mt-2"
-            variants={itemVariants}
-          >
-            ノミ寿司
-          </motion.p>
           
           {/* Tagline - Display Font Medium Weight */}
           <motion.h2
@@ -98,27 +89,22 @@ export default function Hero() {
             className="mt-2 text-lg md:text-xl font-sans font-light text-muted-foreground max-w-xl leading-relaxed tracking-wide"
             variants={itemVariants}
           >
-            Welcome to us at Nomi Sushi and Thai in Nykvarn! Food is our passion. 
-            We are specialists in sushi and Thai. Feel free to explore our website!
+            Välkommen till NordicWardrobe! Premium herrmode är vår passion. 
+            Vi specialiserar oss på tidlösa jackor och skandinavisk design. Utforska vår kollektion!
           </motion.p>
           
           {/* CTA Buttons */}
           <motion.div className="mt-6 flex flex-wrap gap-4" variants={itemVariants}>
-            <Link href="/menu">
+            <Link href="/jackets">
               <Button variant="default" className="text-base font-medium">
-                View Menu
+                Visa Jackor
               </Button>
             </Link>
-            <a
-              href={qoplaOrderUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => showOrderSuccessToast()}
-            >
+            <Link href="/gallery">
               <Button variant="outline" className="text-base font-medium">
-                Order Online
+                Se Lookbook
               </Button>
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
 
@@ -129,12 +115,12 @@ export default function Hero() {
           animate="visible"
         >
           <HighlightCard className="relative w-full max-w-md ml-auto border-white/10 backdrop-blur-xl overflow-hidden">
-            <div className="relative aspect-[4/3] w-full p-4 md:p-6">
+            <div className="relative aspect-[16/9] w-full p-4 md:p-6">
               <Image
-                src="/images/hero/nomi_2.png"
-                alt="Nomi Sushi & Thai hero illustration"
+                src="/images/Jackets/home cover/oktjackman.webp"
+                alt="NordicWardrobe jacka – hero bild"
                 fill
-                className="object-contain"
+                className="object-cover rounded-lg"
                 priority
               />
             </div>

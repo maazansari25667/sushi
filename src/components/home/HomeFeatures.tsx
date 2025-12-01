@@ -7,20 +7,19 @@ const HomeFeatures = () => {
   
   const features = [
     {
-      icon: "📍",
-      title: t.home.whatWeOffer.location,
-      description: t.home.whatWeOffer.locationDescription
-    },
-    {
-      icon: "📄",
-      title: t.home.whatWeOffer.menuDownload,
-      description: t.home.whatWeOffer.menuDownloadDescription,
-      hasLink: true
-    },
-    {
-      icon: "⚡",
+      icon: "🚚",
       title: t.home.whatWeOffer.fastService,
       description: t.home.whatWeOffer.fastServiceDescription
+    },
+    {
+      icon: "↩️",
+      title: "30 dagars öppet köp",
+      description: "Returnera enkelt inom 30 dagar om du inte är helt nöjd. Utan krångel."
+    },
+    {
+      icon: "✨",
+      title: t.home.whatWeOffer.location,
+      description: t.home.whatWeOffer.locationDescription
     }
   ];
 
@@ -38,16 +37,6 @@ const HomeFeatures = () => {
                 <p className="text-sm md:text-base font-sans font-light text-muted-foreground leading-relaxed flex-1">
                   {feature.description}
                 </p>
-                
-                {feature.hasLink && (
-                  <a
-                    href="/menu.pdf"
-                    download
-                    className="text-sm font-semibold text-orange-600 hover:underline"
-                  >
-                    {t.home.whatWeOffer.downloadPdf}
-                  </a>
-                )}
           </CardContent>
         </StandardCard>
       ))}

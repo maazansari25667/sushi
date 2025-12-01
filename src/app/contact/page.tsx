@@ -1,11 +1,11 @@
 "use client";
-import { siteName, siteTagline, sitePhoneDisplay, sitePhoneHref, siteAddressLine1, siteAddressLine2, qoplaOrderUrl } from "@/config/site";
+import { siteName, siteTagline, sitePhoneDisplay, sitePhoneHref, siteAddressLine1, siteAddressLine2 } from "@/config/site";
 import Image from "next/image";
 import { CardContent } from "@/components/ui/card";
 import { StandardCard } from "@/components/ui/nc-card";
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/ui/icons";
-import { showOrderSuccessToast, showPhoneCopiedToast, showAddressCopiedToast } from "@/lib/toast";
+import { showPhoneCopiedToast, showAddressCopiedToast } from "@/lib/toast";
 import { Section, SectionMuted, SectionHighlight } from "@/components/Section";
 import { ReservationForm } from "@/components/Contact/ReservationForm";
 import { ContactFAQ } from "@/components/Contact/ContactFAQ";
@@ -16,18 +16,52 @@ const ContactPage = () => {
   
   return (
     <>
-      {/* Hero Banner */}
+      {/* Hero Banner - Premium Fashion Split Design */}
       <Section className="py-0">
-        <div className="mb-12 overflow-hidden rounded-3xl shadow-lg">
-          <div className="relative w-full aspect-[1920/400] md:aspect-[1920/350]">
-            <Image
-              src="/images/Gallery/Kontakt_Banner_1.png"
-              alt={t.contact.header.alt}
-              fill
-              className="object-cover"
-              priority
-              sizes="(min-width: 1024px) 1200px, 100vw"
-            />
+        <div className="mb-12 overflow-hidden rounded-3xl shadow-2xl">
+          <div className="relative">
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Left Image */}
+              <div className="relative aspect-[685/500] overflow-hidden">
+                <Image
+                  src="/images/Jackets/home cover/exp_1.png"
+                  alt="NordicWardrobe Premium Collection - Nordic Fashion"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+              </div>
+              
+              {/* Right Image */}
+              <div className="relative aspect-[685/500] overflow-hidden">
+                <Image
+                  src="/images/Jackets/home cover/exp_2.webp"
+                  alt="NordicWardrobe Style Experience - Swedish Design"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-l from-black/40 to-transparent" />
+              </div>
+            </div>
+            
+            {/* Center Text Overlay - Premium Typography */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="text-center px-6 py-8 bg-background/95 backdrop-blur-md rounded-2xl shadow-2xl max-w-md mx-4 border border-border/50">
+                <p className="text-xs font-medium tracking-ultra-wide uppercase text-primary/80 mb-3 font-sans">
+                  {t.contact.header.overline}
+                </p>
+                <h1 className="font-display text-5xl md:text-6xl lg:text-display-lg font-bold tracking-tighter mb-3 bg-gradient-to-r from-foreground via-primary to-orange-600 bg-clip-text text-transparent drop-shadow-[0_2px_16px_rgba(251,146,60,0.3)]">
+                  {t.contact.header.title}
+                </h1>
+                <p className="text-base md:text-lg font-sans font-light text-muted-foreground leading-relaxed tracking-wide">
+                  {t.contact.header.subtitle}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
@@ -64,14 +98,9 @@ const ContactPage = () => {
             size="lg"
             asChild
           >
-            <a
-              href={qoplaOrderUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => showOrderSuccessToast()}
-            >
+            <a href="/jackets">
               <span>{t.contact.cta.orderOnline}</span>
-              <Icons.externalLink className="ml-2 h-4 w-4" />
+              <Icons.arrowRight className="ml-2 h-4 w-4" />
             </a>
           </Button>
 
@@ -80,7 +109,7 @@ const ContactPage = () => {
             size="lg"
             asChild
           >
-            <a href="/menu">
+            <a href="/jackets">
               <span>{t.contact.cta.viewMenu}</span>
               <Icons.arrowRight className="ml-2 h-4 w-4" />
             </a>
@@ -88,7 +117,7 @@ const ContactPage = () => {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
-          {/* Left Column: Reservation Form */}
+          {/* Left Column: Contact Form */}
           <div className="space-y-6">
             <StandardCard className="p-6 md:p-8 backdrop-blur-xl bg-white/70 hover:bg-white/80 transition-all duration-300">
               <div className="mb-6">

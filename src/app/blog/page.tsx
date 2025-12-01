@@ -1,5 +1,4 @@
-// NOTE: This route is from the original SaaS template and is currently unused for the Nomi Sushi & Thai site.
-// It can be safely removed if no longer needed.
+// NOTE: Blog section for NordicWardrobe - Fashion and style articles
 
 import SingleBlog from "@/components/Blog/SingleBlog";
 import blogData from "@/components/Blog/blogData";
@@ -8,8 +7,8 @@ import Breadcrumb from "@/components/Common/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog Page | Free Next.js Template for Startup and SaaS",
-  description: "This is Blog Page for Startup Nextjs Template",
+  title: "Style Guide & Blog | NordicWardrobe",
+  description: "Discover styling tips, seasonal guides, and Scandinavian fashion trends from NordicWardrobe",
   // other metadata
 };
 
@@ -17,8 +16,8 @@ const Blog = () => {
   return (
     <>
       <Breadcrumb
-        pageName="Blog Grid"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius eros eget sapien consectetur ultrices. Ut quis dapibus libero."
+        pageName="Style Guide"
+        description="Discover expert styling advice, seasonal jacket guides, and the latest trends in Scandinavian menswear."
       />
 
       <section className="pt-[120px] pb-[120px]">

@@ -26,8 +26,8 @@ interface NomiCardProps extends React.ComponentProps<typeof Card> {
 /**
  * NomiCard - Core card component with variant support
  * 
- * A unified card system for Nomi Sushi & Thai that provides consistent
- * styling across all card-based UI elements (menu items, galleries, info boxes, etc.)
+ * A unified card system for NordicWardrobe that provides consistent
+ * styling across all card-based UI elements (product cards, galleries, info boxes, etc.)
  * 
  * @param variant - "standard" (default content) or "highlight" (emphasis/CTA)
  * @param className - Additional Tailwind classes to merge

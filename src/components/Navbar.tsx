@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { qoplaOrderUrl } from "@/config/site";
 import { LiveHoursIndicator } from "./LiveHoursIndicator";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import LanguageSwitcher from "./navigation/LanguageSwitcher";
@@ -16,10 +15,10 @@ const Navbar = () => {
   console.log("🎯 Navbar render - current language:", language);
   console.log("📝 Navbar translations - Home label:", t.nav.home);
 
-  // Navigation links for restaurant
+  // Navigation links for clothing store
   const navLinks = [
     { href: "/", label: t.nav.home },
-    { href: "/menu", label: t.nav.menu },
+    { href: "/jackets", label: t.nav.jackets },
     { href: "/gallery", label: t.nav.gallery },
     { href: "/contact", label: t.nav.contact },
   ];
@@ -34,7 +33,7 @@ const Navbar = () => {
               <Link href="/">
                 <Image
                   src="/images/hero/Nomi_Logo-oyxtc6ij8tw0kopf1gif67mdone2m0xxyrffzzvq64.png"
-                  alt="Nomi Sushi & Thai"
+                  alt="NordicWardrobe"
                   width={160}
                   height={60}
                   className="w-auto h-12"
@@ -50,7 +49,7 @@ const Navbar = () => {
                   <Link
                     href={link.href}
                     className={`text-base font-medium transition-all duration-200 hover:underline underline-offset-4 ${
-                      pathname === link.href
+                      pathname === link.href || (link.href === "/jackets" && pathname.startsWith("/jackets"))
                         ? "text-primary"
                         : "text-foreground/80 hover:text-primary hover:opacity-100"
                     }`}
@@ -62,13 +61,13 @@ const Navbar = () => {
             </ul>
 
             {/* Desktop: CTA Button + Live Hours - Right */}
-            {/* Mobile: Language Switcher + Status Pill + Order Button */}
+            {/* Mobile: Language Switcher + Status Pill + Shop Button */}
             <div className="flex items-center gap-2 lg:gap-3">
               <LanguageSwitcher />
               <LiveHoursIndicator />
-              <a href={qoplaOrderUrl} target="_blank" rel="noopener noreferrer" className="hidden lg:block">
+              <Link href="/jackets" className="hidden lg:block">
                 <Button variant="default">{t.nav.orderOnline}</Button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
